@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import About from "./pages/About";
 import Post from "./pages/Post";
