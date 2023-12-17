@@ -1,16 +1,21 @@
-
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
-import About from "./pages/About";
-import Post from "./pages/Post";
+import {BrowserRouter} from 'react-router-dom';
 import Navbar from "./components/UI/navbar/navbar";
-import Error from "./pages/Error";
 import AppRouter from "./components/AppRouter";
+import {AuthContext} from "./contex/contex";
+import {useState} from "react";
+
 const App = () => {
+    const [isAuth, setIsAuth] = useState(false);
     return (
-        <BrowserRouter>
-            <Navbar/>
-            <AppRouter/>
-        </BrowserRouter>
+        <AuthContext.Provider value={{
+            isAuth,
+            setIsAuth
+        }}>
+            <BrowserRouter>
+                <Navbar/>
+                <AppRouter/>
+            </BrowserRouter>
+        </AuthContext.Provider>
     );
 };
 

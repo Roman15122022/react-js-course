@@ -21,7 +21,6 @@ function Post() {
     const [page, setPage] = useState(1);
     const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
     let pagesArray = getPagesArray(totalPages);
-    console.log([pagesArray])
     const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
         const response = await PostService.getAll(limit, page);
         setPosts(response.data);
